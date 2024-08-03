@@ -1,0 +1,167 @@
+:root {
+    color-scheme: light dark;
+    --green: #00b755; 
+    --yellow: #daaf38;
+    --red: #ca4754;
+    --black: #222;
+    --gray: #999;
+}
+
+body {
+    background: var(--black);
+    font-family: Menlo, monospace;
+    display: grid;
+    justify-content: center;
+    margin-top: 32px;
+    padding: 26px; 
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.js-logo {
+    background-color: #f7df1e;
+    padding: 5px;
+    color: black;
+}
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.text {
+    text-align: left;
+    margin-right: 20px;
+    font-weight: normal;
+}
+.highlight {
+    background-color: #af1ef7;
+    padding: 2px 5px;
+}
+.buttons {
+    margin-top: 20px;
+}
+.btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-twitch {
+    background-color: #6441a5;
+    color: white;
+    text-decoration: none;
+}
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+section{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 700px;
+}
+
+time{
+    font-size: 24px;
+    color: var(--yellow)
+}
+
+input {
+    z-index: -999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+}
+
+h3 {
+    align-items:  center;
+}
+
+p{
+    display: flex;
+    font-size: 19px;
+    flex-wrap: wrap;
+    gap: 8px 8px;
+    margin: 0;
+}
+
+letter{
+    color: var(--gray);
+    position: relative;
+
+    &.active::before{
+        content: '|';
+        color: var(--yellow);
+        font-size: 14px;
+        position: absolute;
+        left: -65%;
+        animation: 1s blink infinite ease-in-out;
+    }
+
+    &.active.is-last::before {
+        left: 65%;
+    }
+
+    &.correct {
+        color: var(--green);
+    }
+
+    &.incorrect {
+        color: var(--red);
+    }
+
+}
+
+word{
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease-in-out;
+
+    &.marked {
+        border-color: var(--red);
+    }
+}
+
+@keyframes blink {
+    0%, 25% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+}
+
+/* #game{
+    display: flex;
+} */
+
+#results{
+    display: none;
+}
+
+h2{
+    font-weight: 400;
+    opacity: .4;
+    margin: 0;
+    font-size: 16px;
+}
+
+h3 {
+    font-weight: 400;
+    margin: 0;
+    font-size: 24px;
+    color: var(--yellow);
+}
